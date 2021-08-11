@@ -1,0 +1,83 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "Battle Of Stalingrad Service"
+  },
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/MaFerLlamas/battle-of-stalingrad-service/1.0.0",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/maps": {
+      "post": {
+        "summary": "Uploads a map",
+        "description": "Create new maps sending the obstacles and dimensions",
+        "operationId": "addMap",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Map object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MapGrid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The map was successfully saved"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MapGrid": {
+      "type": "object",
+      "required": [
+        "height",
+        "name",
+        "width"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "starling rock",
+          "maxLength": 50
+        },
+        "width": {
+          "type": "integer",
+          "example": "50.9",
+          "minimum": 50,
+          "maximum": 100
+        },
+        "height": {
+          "type": "integer",
+          "example": 50,
+          "minimum": 50,
+          "maximum": 100,
+          "multipleOf": 1
+        },
+        "obstacles": {
+          "type": "array",
+          "description": "Position of the obstacle inside the map, the beginning is 0, if the position doesn't exist the obstacle will be ignored.\nmap positions example =\n[ 0 1 2 ]\n[ 3 4 5 ]\n[ 6 7 8 ]\nobstacles in [0, 1, 4, 9] gives results in\n[ x x   ]\n[   x   ]\n[       ]\n",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9999
+          }
+        }
+      }
+    }
+  }
+}
