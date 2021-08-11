@@ -8,6 +8,7 @@ MongoDB db version v5.0.2
 Database: battleOfStalingrad
 
 There is a Postman collection attached that can be used to send Request to the current endpoints:
+https://github.com/MaFerLlamas/battleOfStalingradService/blob/dev/Battle%20Stalingrad.postman_collection.json
 
 /api/v1/tanks  
 /api/v1/maps
