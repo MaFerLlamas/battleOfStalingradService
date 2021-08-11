@@ -9,7 +9,7 @@ Database: battleOfStalingrad
 
 There is a Postman collection attached that can be used to send Request to the current endpoints:
 
-/api/v1/tanks
+/api/v1/tanks  
 /api/v1/maps
 
 API Specification can be found:
